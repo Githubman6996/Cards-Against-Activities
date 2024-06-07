@@ -1,9 +1,11 @@
-import './style.css'
-import rocketLogo from '/rocket.png'
+import { createElement } from "react";
+import ReactDOM from "react-dom";
+import { createRoot } from "react-dom/client";
+import App from "./App.jsx";
+import { AuthenticatedContextProvider } from "./contexts/AuthContext";
 
-document.querySelector('#app').innerHTML = `
-  <div>
-    <img src="${rocketLogo}" class="logo" alt="Discord" />
-    <h1>Hello, World!</h1>
-  </div>
-`;
+window.caaCache = Object.create(null);
+window.activityName = "Cards Against Humanity"
+
+createRoot(document.querySelector("#app"))
+    .render(createElement(AuthenticatedContextProvider, null, createElement(App)));

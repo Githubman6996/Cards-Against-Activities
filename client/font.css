@@ -1,0 +1,218 @@
+@font-face {
+    font-family: AvenirNextPForBBG;
+    font-display: swap;
+    font-weight: 400;
+    font-style: normal;
+    src: url('https://assets.bwbx.io/s3/fontservice/fonts/AvenirNextPForBBG-Regular-eb3bb1b816.woff2') format('woff2'),url('https://assets.bwbx.io/s3/fontservice/fonts/AvenirNextPForBBG-Regular-093448f517.woff') format('woff')
+}
+
+@font-face {
+    font-family: AvenirNextPForBBG;
+    font-display: swap;
+    font-weight: 600;
+    font-style: normal;
+    src: url('https://assets.bwbx.io/s3/fontservice/fonts/AvenirNextPForBBG-Demi-b9b4abf0ea.woff2') format('woff2'),url('https://assets.bwbx.io/s3/fontservice/fonts/AvenirNextPForBBG-Demi-7459932d1d.woff') format('woff')
+}
+
+@font-face {
+    font-family: 'Bloomberg Logotypes';
+    font-display: swap;
+    font-weight: 500;
+    font-style: normal;
+    src: url('https://assets.bwbx.io/s3/fontservice/fonts/Bloomberg%20Logotypes-Medium-0e53877b78.woff2') format('woff2'),url('https://assets.bwbx.io/s3/fontservice/fonts/Bloomberg%20Logotypes-Medium-4f4134c199.woff') format('woff')
+}
+
+@font-face {
+    font-family: BWHaasGroteskWeb;
+    font-display: swap;
+    font-weight: 400;
+    font-style: normal;
+    src: url('https://assets.bwbx.io/s3/fontservice/fonts/BWHaasGrotesk-55Roman-Web-7998fbcba8.eot');
+    src: local('?'),url('https://assets.bwbx.io/s3/fontservice/fonts/BWHaasGrotesk-55Roman-Web-5cf5733cd9.woff2') format('woff2'),url('https://assets.bwbx.io/s3/fontservice/fonts/BWHaasGrotesk-55Roman-Web-a1ea4fd367.woff') format('woff')
+}
+
+@font-face {
+    font-family: BWHaasGroteskWeb;
+    font-display: swap;
+    font-weight: 500;
+    font-style: normal;
+    src: url('https://assets.bwbx.io/s3/fontservice/fonts/BWHaasGrotesk-65Medium-Web-d9a88b8a91.eot');
+    src: local('?'),url('https://assets.bwbx.io/s3/fontservice/fonts/BWHaasGrotesk-65Medium-Web-8f5de0c368.woff2') format('woff2'),url('https://assets.bwbx.io/s3/fontservice/fonts/BWHaasGrotesk-65Medium-Web-e205ada7dd.woff') format('woff')
+}
+
+@font-face {
+    font-family: BWHaasGroteskWeb;
+    font-display: swap;
+    font-weight: 700;
+    font-style: normal;
+    src: url('https://assets.bwbx.io/s3/fontservice/fonts/BWHaasGrotesk-75Bold-Web-de8c77cce2.woff2') format('woff2'),url('https://assets.bwbx.io/s3/fontservice/fonts/BWHaasGrotesk-75Bold-Web-506363704e.woff') format('woff')
+}
+
+@font-face {
+    font-family: BWHaasGroteskWeb;
+    font-display: swap;
+    font-weight: 900;
+    font-style: normal;
+    src: url('https://assets.bwbx.io/s3/fontservice/fonts/BWHaasGrotesk-95Black-Web-3629d1569b.woff2') format('woff2'),url('https://assets.bwbx.io/s3/fontservice/fonts/BWHaasGrotesk-95Black-Web-37847ad026.woff') format('woff')
+}
+
+@font-face {
+    font-family: BWHaasGroteskWeb;
+    font-display: swap;
+    font-weight: 400;
+    font-style: italic;
+    src: url('https://assets.bwbx.io/s3/fontservice/fonts/BWHaasGrotesk-56Italic-Web-39c99fc394.eot');
+    src: local('?'),url('https://assets.bwbx.io/s3/fontservice/fonts/BWHaasGrotesk-56Italic-Web-669253244d.woff2') format('woff2'),url('https://assets.bwbx.io/s3/fontservice/fonts/BWHaasGrotesk-56Italic-Web-296d0c8182.woff') format('woff')
+}
+
+@font-face {
+    font-family: BWHaasGroteskWeb;
+    font-display: swap;
+    font-weight: 500;
+    font-style: italic;
+    src: url('https://assets.bwbx.io/s3/fontservice/fonts/BWHaasGrotesk-66MediumItalic-Web-d725f5ecec.woff2') format('woff2'),url('https://assets.bwbx.io/s3/fontservice/fonts/BWHaasGrotesk-66MediumItalic-Web-503f6e56b6.woff') format('woff')
+}
+
+@font-face {
+    font-family: BWHaasGroteskWeb;
+    font-display: swap;
+    font-weight: 700;
+    font-style: italic;
+    src: url('https://assets.bwbx.io/s3/fontservice/fonts/BWHaasGrotesk-76BoldItalic-Web-1276e0d1bc.woff2') format('woff2'),url('https://assets.bwbx.io/s3/fontservice/fonts/BWHaasGrotesk-76BoldItalic-Web-1032f4ce3a.woff') format('woff')
+}
+
+@font-face {
+    font-family: BWHaasGroteskWeb;
+    font-display: swap;
+    font-weight: 900;
+    font-style: italic;
+    src: url('https://assets.bwbx.io/s3/fontservice/fonts/BWHaasGrotesk-96BlackItalic-Web-47835b8d5d.woff2') format('woff2'),url('https://assets.bwbx.io/s3/fontservice/fonts/BWHaasGrotesk-96BlackItalic-Web-1a0b95417e.woff') format('woff')
+}
+
+@font-face {
+    font-family: BWHaasHead;
+    font-display: swap;
+    font-weight: 400;
+    font-style: normal;
+    src: url('https://assets.bwbx.io/s3/fontservice/fonts/BWHaasHead-55Roman-bb69898728.woff2') format('woff2'),url('https://assets.bwbx.io/s3/fontservice/fonts/BWHaasHead-55Roman-58293d4d67.woff') format('woff')
+}
+
+@font-face {
+    font-family: BWHaasHead;
+    font-display: swap;
+    font-weight: 500;
+    font-style: normal;
+    src: url('https://assets.bwbx.io/s3/fontservice/fonts/BWHaasHead-65Medium-a4b781f4af.woff2') format('woff2'),url('https://assets.bwbx.io/s3/fontservice/fonts/BWHaasHead-65Medium-7fca672848.woff') format('woff')
+}
+
+@font-face {
+    font-family: BWHaasHead;
+    font-display: swap;
+    font-weight: 400;
+    font-style: italic;
+    src: url('https://assets.bwbx.io/s3/fontservice/fonts/BWHaasHead-56Italic-b6ed5982f2.woff2') format('woff2'),url('https://assets.bwbx.io/s3/fontservice/fonts/BWHaasHead-56Italic-e924a76be8.woff') format('woff')
+}
+
+@font-face {
+    font-family: BWHaasHead;
+    font-display: swap;
+    font-weight: 500;
+    font-style: italic;
+    src: url('https://assets.bwbx.io/s3/fontservice/fonts/BWHaasHead-66MediumItalic-2353ae9b60.woff2') format('woff2'),url('https://assets.bwbx.io/s3/fontservice/fonts/BWHaasHead-66MediumItalic-a0b9cedb3e.woff') format('woff')
+}
+
+@font-face {
+    font-family: PublicoText;
+    font-display: swap;
+    font-weight: 400;
+    font-style: normal;
+    src: url('https://assets.bwbx.io/s3/fontservice/fonts/PublicoText-Roman-Web-bfa063ee27.woff2') format('woff2'),url('https://assets.bwbx.io/s3/fontservice/fonts/PublicoText-Roman-Web-e953eb7239.woff') format('woff')
+}
+
+@font-face {
+    font-family: PublicoText;
+    font-display: swap;
+    font-weight: 600;
+    font-style: normal;
+    src: url('https://assets.bwbx.io/s3/fontservice/fonts/PublicoText-Semibold-Web-c48189a45a.woff2') format('woff2'),url('https://assets.bwbx.io/s3/fontservice/fonts/PublicoText-Semibold-Web-595b04b2da.woff') format('woff')
+}
+
+@font-face {
+    font-family: PublicoText;
+    font-display: swap;
+    font-weight: 700;
+    font-style: normal;
+    src: url('https://assets.bwbx.io/s3/fontservice/fonts/PublicoText-Bold-Web-3c5266a48e.woff2') format('woff2'),url('https://assets.bwbx.io/s3/fontservice/fonts/PublicoText-Bold-Web-8851dd6a6e.woff') format('woff')
+}
+
+@font-face {
+    font-family: PublicoText;
+    font-display: swap;
+    font-weight: 400;
+    font-style: italic;
+    src: url('https://assets.bwbx.io/s3/fontservice/fonts/PublicoText-Italic-Web-b04a2274cf.woff2') format('woff2'),url('https://assets.bwbx.io/s3/fontservice/fonts/PublicoText-Italic-Web-ba4fbc1a59.woff') format('woff')
+}
+
+@font-face {
+    font-family: PublicoText;
+    font-display: swap;
+    font-weight: 600;
+    font-style: italic;
+    src: url('https://assets.bwbx.io/s3/fontservice/fonts/PublicoText-SemiboldItalic-Web-0254961da8.woff2') format('woff2'),url('https://assets.bwbx.io/s3/fontservice/fonts/PublicoText-SemiboldItalic-Web-57bd60b6fc.woff') format('woff')
+}
+
+@font-face {
+    font-family: PublicoText;
+    font-display: swap;
+    font-weight: 700;
+    font-style: italic;
+    src: url('https://assets.bwbx.io/s3/fontservice/fonts/PublicoText-BoldItalic-Web-87dd52eb78.woff2') format('woff2'),url('https://assets.bwbx.io/s3/fontservice/fonts/PublicoText-BoldItalic-Web-aacadef6f2.woff') format('woff')
+}
+
+@font-face {
+    font-family: PublicoTextMono;
+    font-display: swap;
+    font-weight: 400;
+    font-style: normal;
+    src: url('https://assets.bwbx.io/s3/fontservice/fonts/PublicoTextMono-Roman-Web-030ce79c82.woff2') format('woff2'),url('https://assets.bwbx.io/s3/fontservice/fonts/PublicoTextMono-Roman-Web-39b4bff080.woff') format('woff')
+}
+
+@font-face {
+    font-family: PublicoTextMono;
+    font-display: swap;
+    font-weight: 600;
+    font-style: normal;
+    src: url('https://assets.bwbx.io/s3/fontservice/fonts/PublicoTextMono-Semibold-Web-e5c1aee9ee.woff2') format('woff2'),url('https://assets.bwbx.io/s3/fontservice/fonts/PublicoTextMono-Semibold-Web-9b564f9a2b.woff') format('woff')
+}
+
+@font-face {
+    font-family: PublicoTextMono;
+    font-display: swap;
+    font-weight: 700;
+    font-style: normal;
+    src: url('https://assets.bwbx.io/s3/fontservice/fonts/PublicoTextMono-Bold-Web-2ab325264d.woff2') format('woff2'),url('https://assets.bwbx.io/s3/fontservice/fonts/PublicoTextMono-Bold-Web-5f46c59280.woff') format('woff')
+}
+
+@font-face {
+    font-family: PublicoTextMono;
+    font-display: swap;
+    font-weight: 400;
+    font-style: italic;
+    src: url('https://assets.bwbx.io/s3/fontservice/fonts/PublicoTextMono-Italic-Web-de42f6a4f1.woff2') format('woff2'),url('https://assets.bwbx.io/s3/fontservice/fonts/PublicoTextMono-Italic-Web-7d197ea7c1.woff') format('woff')
+}
+
+@font-face {
+    font-family: PublicoTextMono;
+    font-display: swap;
+    font-weight: 600;
+    font-style: italic;
+    src: url('https://assets.bwbx.io/s3/fontservice/fonts/PublicoTextMono-SemiboldItalic-Web-a048987ac3.woff2') format('woff2'),url('https://assets.bwbx.io/s3/fontservice/fonts/PublicoTextMono-SemiboldItalic-Web-b32d56767f.woff') format('woff')
+}
+
+@font-face {
+    font-family: PublicoTextMono;
+    font-display: swap;
+    font-weight: 700;
+    font-style: italic;
+    src: url('https://assets.bwbx.io/s3/fontservice/fonts/PublicoTextMono-BoldItalic-Web-cabdcc9a36.woff2') format('woff2'),url('https://assets.bwbx.io/s3/fontservice/fonts/PublicoTextMono-BoldItalic-Web-c92f0de918.woff') format('woff')
+}

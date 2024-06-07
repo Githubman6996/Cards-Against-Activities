@@ -7,10 +7,11 @@ yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
 
-node_modules
+package-lock.json
 
 # Sensitive environment variables
 .env
+*.env
 
 # Modules + built files
 node_modules
