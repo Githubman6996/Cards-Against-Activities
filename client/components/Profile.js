@@ -16,7 +16,7 @@ export default function Profile({ id, data, winner, host, scale = 1.25, hover, r
             // justifySelf: "end"
         }, style)
     },
-        winner && e("div", {
+        winner && data?.score !== 0 && e("div", {
             style: {
                 position: "absolute",
                 rotate: "-22.5deg",

@@ -173,7 +173,7 @@ export function Picking() {
                         },
                         onClick: () => {
                             const cards = auth.room.userData[auth.userId].cards;
-                            auth.submitCards(cards.length == auth.room.needed ? [x] : cards.concat(x));
+                            if (!cards.includes(x)) auth.submitCards(cards.length == auth.room.needed ? [x] : cards.concat(x));
                         },
                     }, e("div", { className: "whiteButton" }, "Add Card"), whites[x]);
                 })
@@ -273,7 +273,7 @@ export function Picked() {
             },
 
                 // [[0, 1], [2, 3], [4, 5], [6, 7], [8, 9]]
-                auth.room.users.map(x => {
+                auth.room.shuffled.map(x => {
                     return auth.room.userData[x].cards?.length > 0 && e("div", {
                         key: x,
                         style: {

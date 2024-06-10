@@ -91,7 +91,7 @@ class Room {
     roundsLeft = 10;
     whiteCards = shuffle([...whiteInds]);
     blackCards = shuffle([...blackInds]);
-    cardsPerUser = 10;
+    cardsPerUser = 20;
     promptCard;
     history = [];
     needed = 0;
@@ -99,6 +99,7 @@ class Room {
     winner = null;
     betWon = false;
     rounds = 10;
+    shuffled = [];
     constructor(name, channelId) {
         this.name = name;
         this.channelId = channelId;
@@ -139,16 +140,22 @@ class Room {
             ready: false,
             avatar,
             name
-        }
+        };
+        while (this.userData[id].deck.length < this.cardsPerUser)
+            this.userData[id].deck.push(this.whiteCards.pop());
         this.users.add(id);
-        this.cardsPerUser = Math.min(10, Math.floor(whitesArr.length / (this.users.size - 1)));
+        this.shuffled = shuffle(this.shuffled.concat(id));
+        this.cardsPerUser = Math.min(20, Math.floor(whitesArr.length / (this.users.size - 1)));
         this.updateUsers();
     }
     removeUser(id) {
-        while (this.userData[id].deck.length > 0) this.whiteCards.unshift(this.userData[user].deck.pop());
+        while (this.userData[id].deck.length > 0) this.whiteCards.unshift(this.userData[id].deck.pop());
         delete this.userData[id];
+        if (Array.prototype.indexOf.call(this.users, id) < this.host) this.host--;
         this.users.delete(id);
-        this.cardsPerUser = Math.min(10, Math.floor(whitesArr.length / (this.users.size - 1)));
+        this.shuffled = shuffle(this.shuffled.filter(x => x != id));
+        this.host %= this.users.size;
+        this.cardsPerUser = Math.min(20, Math.floor(whitesArr.length / (this.users.size - 1)));
         this.updateUsers();
     }
     startingTimeout = null;
@@ -158,7 +165,7 @@ class Room {
         if (this.state == PICKING) {
             if (this.userData[id].cards.length != this.needed) this.userData[id].ready = false;
             else {
-                this.userData[this.getHost()].ready = false;
+                this.userData[this.getHost()] && (this.userData[this.getHost()].ready = false);
                 if (this.numReady() == this.users.size - 1) {
                     this.state = CHOOSING;
                 }
@@ -173,6 +180,7 @@ class Room {
             this.starting = true;
             this.state = STARTING;
             this.history = [];
+            for (const user of this.users) this.userData[user].score = 0;
             this.startingTimeout = setTimeout(() => {
                 this.state = PICKING;
                 this.nextTimestamp = -1;
@@ -196,7 +204,7 @@ class Room {
             this.betWon = bet;
 
             this.userData[winner].score++;
-            this.history.push([this.promptCard, winner, this.userData[winner][bet ? "bet" : "cards"]]);
+            this.history.push([this.promptCard, winner, [...this.userData[winner].cards]]);
 
             this.nextTimestamp = Date.now() + 10000;
             this.winnerTimeout = setTimeout(() => {
@@ -206,6 +214,15 @@ class Room {
                 if (--this.roundsLeft == 0) {
                     this.state = LEADERBOARD;
                     this.roundsLeft = this.rounds;
+                    for (const user of this.users) {
+                        while (this.userData[user].deck.length)
+                            this.whiteCards.unshift(this.userData[user].deck.pop());
+                        Object.assign(this.userData[user], {
+                            cards: [],
+                            bet: [],
+                            ready: false
+                        });
+                    }
                 } else this.startRound();
                 this.updateUsers();
             }, 10000)
@@ -240,6 +257,7 @@ class Room {
             while (this.userData[user].cards.length > 0) this.whiteCards.unshift(this.userData[user].cards.pop());
             while (this.userData[user].bet.length > 0) this.whiteCards.unshift(this.userData[user].bet.pop());
         }
+        shuffle(this.shuffled);
         this.promptCard = this.blackCards.pop();
         this.needed = Room.numPick(this.promptCard);
         this.updateUsers();
@@ -336,7 +354,7 @@ router.ws("/api/ws", /**@param {WebSocket} ws*/(ws) => {
             const room = rooms[ws.data.channelId];
             room.removeUser(ws.data.userId);
             if (room.users.size == 0) {
-                delete rooms[room.id];
+                delete rooms[ws.data.channelId];
             }
         }
     });
