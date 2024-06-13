@@ -1,0 +1,144 @@
+.scores {
+    outline: calc(var(--global) * 0.2) solid white;
+    background: rgb(0 0 0 / 50%);
+    border-top-right-radius: calc(var(--global) * 1);
+    border-bottom-right-radius: calc(var(--global) * 1);
+    display: flex;
+    flex-direction: column;
+    gap: calc(var(--global) * 1);
+    position: fixed;
+    left: 0;
+    top: calc(var(--global) * 2);
+    padding: calc(var(--global) * 2);
+    padding-top: calc(var(--global) * 5);
+    max-height: calc(50vh - var(--global) * 4);
+    overflow-y: scroll;
+    overflow-x: hidden;
+    box-sizing: border-box;
+    color: white;
+    z-index: 2;
+}
+
+.row {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    font-weight: 500;
+    font-size: calc(var(--global) * 2.5);
+}
+
+.data {
+    display: flex;
+}
+
+.name {
+    width: calc(var(--global) * 18);
+    margin-right: auto;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.chosenData {
+    display: flex;
+    margin-left: calc(var(--global) * 2);
+    width: calc(var(--global) * 25);
+}
+
+.standing {
+    height: 100%;
+    width: calc(100% / 3);
+    display: grid;
+}
+
+.standingProfile {
+    place-self: flex-end;
+    justify-self: center;
+    margin-bottom: calc(var(--global) * 2);
+}
+
+.standingData {
+    background: rgb(0 0 0 / 50%);
+    outline: calc(var(--global) * 0.2) solid white;
+    border-radius: calc(var(--global) * 1);
+    text-align: center;
+    font-weight: 500;
+    font-size: calc(var(--global) * 2.5);
+    margin-inline: calc(var(--global) * 1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.standingPlace {
+    font-size: calc(var(--global) * 4);
+    position: relative;
+}
+
+.standingPlace:after {
+    content: attr(ordinal);
+    font-size: 0.5em;
+    position: absolute;
+    top: calc(var(--global) * 0.5);
+}
+
+.resultsBoard {
+    height: 100%;
+    padding: calc(var(--global) * 5);
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.podium {
+    display: flex;
+    height: 50%;
+    justify-content: center;
+}
+
+.runnerups {
+    margin-block: calc(var(--global) * 3);
+    display: flex;
+    gap: calc(var(--global) * 2);
+    flex-direction: column;
+    overflow-y: scroll;
+    padding: calc(var(--global) * 1);
+    max-height: 20vh;
+}
+
+.runnerup {
+    background: rgb(0 0 0 / 50%);
+    outline: calc(var(--global) * 0.2) solid white;
+    border-radius: calc(var(--global) * 1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 500;
+    padding: calc(var(--global) * 1) calc(var(--global) * 2);
+}
+
+.runnerupPlace {
+    margin-right: calc(var(--global) * 3);
+}
+
+.runnerupName {
+    flex-grow: 1;
+    margin-left: calc(var(--global) * 1);
+}
+
+.lobbyButton {
+    color: black;
+    padding-inline: calc(var(--global) * 3);
+    background: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 0;
+    border-radius: calc(var(--global) * 1);
+    font-weight: 500;
+    align-self: center;
+    width: calc(var(--global) * 12.5);
+    height: calc(var(--global) * 7.5);
+    cursor: pointer;
+}

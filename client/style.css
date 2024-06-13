@@ -8,10 +8,13 @@
 }
 
 body {
-    --hue: 276;
+    --hue: 235;
+    --saturation: 0.86;
+    --light: 0.5;
     margin: 0;
     background: radial-gradient(rgb(32, 32, 32) 50%, black);
-    background: radial-gradient(hsl(var(--hue), 61%, 41%) 50%, hsl(var(--hue), 88%, 23%));
+    background: radial-gradient(hsl(var(--hue), calc(61% * var(--saturation)), calc(100% * var(--light))) 50%, hsl(var(--hue), calc(88% * var(--saturation)), calc(56% * var(--light))));
+    overflow-x: hidden;
 }
 
 .gameContainer {
@@ -238,18 +241,6 @@ input[type=number] {
     text-align: center;
 }
 
-.standingPlace {
-    font-size: calc(var(--global) * 4);
-    position: relative;
-}
-
-.standingPlace:after {
-    content: attr(ordinal);
-    font-size: 0.5em;
-    position: absolute;
-    top: calc(var(--global) * 0.5);
-}
-
 .pushy {
     transition: 0.5s;
     scale: 1;
@@ -263,4 +254,56 @@ input[type=number] {
 .pushy:active {
     transition: 0.1s;
     scale: 0.95
+}
+
+@keyframes scaleIn {
+    0% {
+        transform: scale(0.5);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+@keyframes flyInBottom {
+    0% {
+        transform: translateY(80%);
+        opacity: 0;
+    }
+
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes windowIn {
+    0% {
+        transform: scale(0);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+@keyframes dropInBounce {
+    0% {
+        transform: translateY(-100%);
+        opacity: 0;
+    }
+
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.saturationPicker>div>div:nth-child(1)>div {
+    background: none !important;
+}
+
+.lightPicker>div>div:nth-child(1) {
+    background: black;
 }

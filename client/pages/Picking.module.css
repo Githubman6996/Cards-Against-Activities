@@ -1,0 +1,102 @@
+.deckContainer,
+.pickingBottom {
+    padding: calc(var(--global) * 3);
+    box-sizing: border-box
+}
+
+.pickingPage {
+    width: 100vw;
+    height: 100vh;
+    color: #fff;
+    display: grid;
+    grid-template-rows: 1fr 1fr
+}
+
+.pickingTop {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: calc(var(--global) * 2);
+    position: relative
+}
+
+.submitButtons {
+    position: absolute;
+    right: calc(var(--global) * 3);
+    bottom: calc(var(--global) * 3);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: calc(var(--global) * 1);
+    font-weight: 500;
+    font-size: calc(var(--global) * 2.75)
+}
+
+/* .timerText {} */
+
+.readyButton {
+    border: none;
+    outline: 0;
+    height: calc(var(--global) * 6.5);
+    width: calc(var(--global) * 18);
+    border-radius: calc(var(--global) * 1);
+    color: #fff;
+    transition: transform .4s;
+    position: relative;
+    transform-style: preserve-3d;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 5
+}
+
+.readyBack,
+.readyFront {
+    margin: auto;
+    padding-inline: calc(var(--global) * 3);
+    position: absolute;
+    inset: 0;
+    justify-content: center;
+    display: flex;
+    border-radius: calc(var(--global) * 1)
+}
+
+.readyFront {
+    background: #0f0;
+    align-items: center;
+    z-index: 1;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden
+}
+
+.readyBack {
+    background: red;
+    align-items: center;
+    z-index: 0;
+    transform: rotateX(180deg);
+    backface-visibility: hidden
+}
+
+.pickingBottom {
+    height: 50vh
+}
+
+.deckContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    overflow-y: scroll;
+    height: calc(50vh - var(--global) * 6);
+    gap: calc(var(--global) * 1);
+    outline: calc(var(--global) * .2) solid white;
+    border-radius: calc(var(--global) * 1);
+    background: rgb(0 0 0 / 50%)
+}
+
+.cardsContainer {
+    display: flex;
+    gap: var(--global);
+    position: relative;
+}

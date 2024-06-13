@@ -1,0 +1,48 @@
+.timerText,
+.winnerName {
+    font-weight: 500;
+    font-size: calc(var(--global) * 2.75)
+}
+
+.chosenPage {
+    width: 100vw;
+    height: 100vh;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center
+}
+
+.chosenContent,
+.winner {
+    display: flex;
+    width: 100%;
+    gap: calc(var(--global) * 2)
+}
+
+.chosenContent {
+    align-items: center;
+    justify-content: space-evenly;
+    position: relative
+}
+
+.chosenResults {
+    display: flex;
+    flex-direction: column;
+    gap: calc(var(--global) * 2)
+}
+
+.chosenCards {
+    gap: calc(var(--global) * 2);
+    display: flex
+}
+
+.winner {
+    align-items: center;
+    justify-content: center
+}
+
+.timerText {
+    text-align: center;
+    margin-top: calc(var(--global) * 4)
+}

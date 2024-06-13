@@ -1,0 +1,100 @@
+.settingsBackgroundButton {
+    position: fixed;
+    inset: 0;
+    cursor: pointer;
+    z-index: 2;
+}
+
+.settingsButton {
+    appearance: none;
+    -webkit-appearance: none;
+    position: absolute;
+    top: calc(var(--global) * 3);
+    right: calc(var(--global) * 3);
+    aspect-ratio: 1 / 1;
+    width: calc(var(--global) * 10);
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: calc(var(--global) * 100);
+    border: 1px solid white;
+    transition: transform 0.2s;
+    transform-origin: top right;
+    color: white;
+    cursor: pointer;
+    z-index: 3;
+    padding: 0;
+}
+
+.settingsIcon {
+    transition: transform 0.2s;
+    font-size: calc(var(--global) * 5.5);
+    color: white;
+    position: absolute;
+    inset: 0;
+    display: grid;
+    place-items: center;
+}
+
+.settingsIcon > i {
+    vertical-align: middle;
+    line-height: inherit;
+}
+
+.settingsMenuWrapper {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    inset: calc(var(--global) * 10);
+    padding: calc(var(--global) * 4);
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: calc(var(--global) * 3);
+    border: calc(var(--global) * 0.2) solid white;
+    color: white;
+    z-index: "4";
+    transition: transform 0.2s;
+    transform-origin: top right;
+    box-shadow: calc(var(--global) * 1) calc(var(--global) * 1) 0 rgba(0, 0, 0, 0.5);
+}
+
+.settingsMenu {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.header {
+    font-weight: 600;
+    font-size: calc(var(--global) * 6);
+    position: absolute;
+    top: -25px;
+    left: 0;
+}
+
+.exitSettingsButton {
+    display: flex;
+    justify-content: flex-end;
+    margin-left: auto;
+    margin-right: 0;
+    margin-bottom: 20px;
+    cursor: pointer;
+    font-size: calc(var(--global) * 8);
+    color: white;
+}
+
+.setting {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.settingHeader {
+    font-weight: 600;
+}
+
+.settingDescription {
+    color: white;
+    font-weight: 100;
+    margin-left: 0.5em;
+    font-size: 0.75em;
+}

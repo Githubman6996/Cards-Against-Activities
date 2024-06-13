@@ -1,40 +1,40 @@
-import { createElement } from "react";
-import { useAuth } from "./contexts/AuthContext.js";
-import Lobby from "./pages/Lobby.js";
-import { Picked, Picking } from "./pages/Picking.js";
-import { Waiting, Choosing } from "./pages/Choosing.js";
-import Chosen from "./pages/Chosen.js";
-import Results from "./pages/Results.js";
+import React from "react";
+import { useAuth } from "./contexts/AuthContext.jsx";
+import Lobby from "./pages/Lobby.jsx";
+import { Picked, Picking } from "./pages/Picking.jsx";
+import { Waiting, Choosing } from "./pages/Choosing.jsx";
+import Chosen from "./pages/Chosen.jsx";
+import Results from "./pages/Results.jsx";
 import { CHOOSING, CHOSEN, LEADERBOARD, LOBBY, PICKING, STARTING } from "./util.js";
-import ErrorBoundary from "./components/ErrorBoundary.jsx";
 
+window.React = React;
 
 const routes = {
     [LOBBY]: {
-        default: Lobby,
+        default: <Lobby />,
     },
     [STARTING]: {
-        default: Lobby,
+        default: <Lobby />,
     },
     [PICKING]: {
-        host: Waiting,
-        default: Picking,
+        host: <Waiting />,
+        default: <Picking />,
     },
     [CHOOSING]: {
-        host: Choosing,
-        default: Picked,
+        host: <Choosing />,
+        default: <Picked />,
     },
     [CHOSEN]: {
-        default: Chosen,
+        default: <Chosen />,
     },
     [LEADERBOARD]: {
-        default: Results
-    }
-}
+        default: <Results />,
+    },
+};
 
 export default function App() {
     const auth = useAuth();
-    console.log(auth)
+    console.log(auth);
     const isHost = auth.room && auth.room.users[auth.room.host] == auth.userId;
-    return createElement(ErrorBoundary, {}, createElement(isHost && routes[auth.page].host || routes[auth.page].default || Lobby));
+    return <>{(isHost && routes[auth.page]?.host) || routes[auth.page]?.default || <Lobby />}</>;
 }

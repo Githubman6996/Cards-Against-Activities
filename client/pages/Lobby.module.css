@@ -1,0 +1,212 @@
+.lobbyPage {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: row;
+}
+
+.activityName {
+    width: min-content;
+    color: white;
+    font-weight: 600;
+    padding-left: calc(var(--global) * 6);
+    text-shadow: 4px 4px 0px rgba(0, 0, 0, 0.5);
+    position: relative;
+}
+
+.activityName>h1 {
+    font-size: calc(var(--global) * 16);
+    line-height: calc(var(--global) * 16);
+    margin: 0;
+    padding: 0;
+    animation: slideInLeft 1s ease;
+    animation-delay: 0;
+}
+
+
+.activityName>span {
+    font-size: calc(var(--global) * 4);
+    margin: 0;
+    padding: 0;
+    font-weight: 900;
+    display: flex;
+    animation: slideInLeft 1s ease;
+    animation-fill-mode: forwards;
+    animation-delay: 1s;
+    transform: translateX(-100%);
+    opacity: 0;
+}
+
+@keyframes slideInLeft {
+    0% {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+.lobbyContent {
+    width: 70vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+.dropInDev {
+    position: absolute;
+    top: 0;
+    right: 0;
+    font-size: calc(var(--global) * 10);
+    color: rgb(180, 180, 180);
+    text-shadow: 4px 4px rgba(0, 0, 0, 0.5);
+    font-weight: 900;
+    animation: dropInSwing 1s ease;
+    animation-delay: 2s;
+    animation-fill-mode: forwards;
+    opacity: 0;
+}
+
+@keyframes dropInSwing {
+    0% {
+        transform: rotate(50deg) translate(250%, -250%) scale(0.5);
+    }
+
+    100% {
+        transform: rotate(30deg) translate(-10%, -60%) scale(1);
+        opacity: 1;
+    }
+}
+
+.usersWrapper {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.usersContainer {
+    display: flex;
+    flex-flow: wrap;
+    overflow-y: scroll;
+    z-index: 0;
+    justify-content: center;
+    align-items: center;
+    height: 75vh;
+    padding-block: calc(var(--global) * 12);
+    grid-template-columns: repeat(auto-fill, calc(var(--global) * 17));
+    gap: calc(var(--global) * 1);
+    overflow-x: hidden;
+    box-sizing: border-box;
+    padding-inline: calc(var(--global) * 6);
+}
+
+.readyContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 25vh;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    position: relative;
+    animation: flyInBottom 0.5s forwards;
+}
+
+.countdownText {
+    color: white;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    text-align: center;
+    font-weight: 500;
+    font-size: calc(var(--global) * 3);
+}
+
+.readyButton {
+    border: none;
+    outline: none;
+    height: calc(var(--global) * 10);
+    width: calc(var(--global) * 30);
+    border-radius: calc(var(--global) * 1);
+    color: white;
+    font-weight: 500;
+    font-size: calc(var(--global) * 4.5);
+    transition: transform 0.4s;
+    position: relative;
+    transform-style: preserve-3d;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.readyFront {
+    margin: auto;
+    padding-inline: calc(var(--global) * 3);
+    background: lime;
+    position: absolute;
+    inset: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+    backface-visibility: hidden;
+    border-radius: calc(var(--global) * 1);
+    -webkit-backface-visibility: hidden;
+}
+
+.readyBack {
+    margin: auto;
+    padding-inline: calc(var(--global) * 3);
+    background: red;
+    position: absolute;
+    inset: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 0;
+    border-radius: calc(var(--global) * 1);
+    transform: rotateX(180deg);
+    backface-visibility: hidden;
+}
+
+.roundsCount {
+    color: white;
+    font-weight: 500;
+    font-size: calc(var(--global) * 3);
+    margin-top: calc(var(--global) * 3);
+    display: flex;
+}
+
+.roundInput {
+    border: none;
+    background: none;
+    color: white;
+    margin-right: calc(var(--global) * 1.5);
+    border-radius: calc(var(--global) * 0.5);
+    font-weight: 500;
+    font-size: calc(var(--global) * 2.25);
+    width: calc(var(--global) * 4);
+    text-align: center;
+}
+
+.bottomText {
+    position: absolute;
+    bottom: 0;
+    left: calc(var(--global) * 2);
+    font-size: calc(var(--global) * 2);
+    color: white;
+    font-weight: 400;
+    letter-spacing: calc(var(--global) * 0.1);
+    text-shadow: 0 3px black;
+}

@@ -1,0 +1,57 @@
+.profileWrapper {
+    padding: calc(var(--global) * 1.5 * var(--scale));
+    height: calc(var(--global) * 12 * var(--scale));
+    aspect-ratio: 1 / 1;
+    transition: background 0.2s;
+    border-radius: 50%;
+    align-self: center;
+    position: relative;
+}
+
+.winnerIcon {
+    position: absolute;
+    rotate: -22.5deg;
+    bottom: 75%;
+    right: 35%;
+    z-index: 1;
+    font-size: calc(var(--global) * 8 * var(--scale));
+}
+
+.hostIcon {
+    --size: calc(var(--global) * var(--scale) * 0.15);
+    font-size: calc(var(--global) * var(--scale) * 3);
+    position: absolute;
+    bottom: 75%;
+    left: 75%;
+    z-index: 1;
+    text-shadow: var(--size) var(--size) 0 #000, calc(var(--size) * -1) var(--size) 0 #000, calc(var(--size) * -1) calc(var(--size) * -1) 0 #000, var(--size) calc(var(--size) * -1) 0 #000;
+    animation: dropInBounce 0.5s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+}
+
+.avatar {
+    aspect-ratio: 1 / 1;
+    border-radius: 50%;
+    top: 50%;
+    left: 50%;
+    transition: transform 0.5s;
+    position: absolute;
+    z-index: 0;
+    width: calc(var(--global) * var(--scale) * 12);
+}
+
+.profileName {
+    position: absolute;
+    top: 105%;
+    inset-inline: -25%;
+    text-align: center;
+    color: white;
+    font-weight: 500;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    z-index: 5;
+    background: rgba(0, 0, 0, 0.5);
+    padding: 0.5em;
+    border-radius: 0.5em;
+    font-size: calc(var(--global) * var(--scale) * 2.5);
+}
