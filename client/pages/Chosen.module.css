@@ -5,7 +5,7 @@
 }
 
 .chosenPage {
-    width: 100vw;
+    width: 100%;
     height: 100vh;
     color: #fff;
     display: flex;
@@ -34,7 +34,9 @@
 
 .chosenCards {
     gap: calc(var(--global) * 2);
-    display: flex
+    display: flex;
+    width: fit-content;
+    overflow: visible;
 }
 
 .winner {

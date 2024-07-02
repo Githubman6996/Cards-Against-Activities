@@ -22,6 +22,7 @@
     cursor: pointer;
     z-index: 3;
     padding: 0;
+    box-shadow: 4px 4px 0 rgba(0, 0, 0, 0.5);
 }
 
 .settingsIcon {
@@ -49,7 +50,7 @@
     border-radius: calc(var(--global) * 3);
     border: calc(var(--global) * 0.2) solid white;
     color: white;
-    z-index: "4";
+    z-index: 4;
     transition: transform 0.2s;
     transform-origin: top right;
     box-shadow: calc(var(--global) * 1) calc(var(--global) * 1) 0 rgba(0, 0, 0, 0.5);

@@ -4,6 +4,7 @@ import { LOBBY, blacks, className, whites } from "../util.js";
 import Profile from "../components/Profile.jsx";
 import { ResultsBoard } from "../components/Leaderboard.jsx";
 import resultsStyles from "./Results.module.css";
+import { BlackCard, WhiteCard } from "../components/Card.jsx";
 
 export default function Results() {
     const auth = useAuth();
@@ -19,13 +20,9 @@ export default function Results() {
                                 <div className={resultsStyles.submission} key={i}>
                                     <Profile id={hist[1]} data={auth.room.userData[hist[1]]} scale={0.7} hover={true} ready={false} />
                                     <div className={resultsStyles.submissionCards} style={{ gap: `calc(var(--global) * 2 / ${hist[2].length})` }}>
-                                        <div className="black" style={{ "--size": scale }}>
-                                            {blacks[hist[0]]}
-                                        </div>
+                                        <BlackCard size={scale} ind={hist[0]} />
                                         {hist[2].map((card, i) => (
-                                            <div className="white" key={card} style={{ "--size": scale }}>
-                                                {whites[card]}
-                                            </div>
+                                            <WhiteCard size={scale} key={card} ind={card} noShadow />
                                         ))}
                                     </div>
                                 </div>

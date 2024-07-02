@@ -3,6 +3,8 @@ import { useState, useRef, useEffect } from "react";
 import { useAuth } from "../contexts/AuthContext.jsx";
 import { blacks, whites, parseTime, className } from "../util.js";
 import Leaderboard from "../components/Leaderboard.jsx";
+import gsap from "gsap";
+import { BlackCard, WhiteCard } from "../components/Card.jsx";
 
 import pickingStyles from "./Picking.module.css";
 
@@ -37,25 +39,24 @@ export function Picking() {
                         <div className={pickingStyles.readyBack}>Unsubmit</div>
                     </div>
                 </div>
-                <div className="black" style={{ "--size": "calc(1vh * 40 * 63 / 88)" }}>
-                    {blacks[auth.room.promptCard]}
-                </div>
+                <BlackCard scale={40} showAnimation ind={auth.room.promptCard} />
                 {auth.room.userData[auth.userId].cards?.length > 0 &&
                     auth.room.userData[auth.userId].cards.map((card, i) => {
                         return (
-                            <div
-                                className="white"
+                            <WhiteCard
                                 key={card}
+                                ind={card}
+                                showAnimation
+                                index={i}
+                                scale={40}
                                 onClick={() => {
                                     if (userReady) return;
                                     const cards = auth.room.userData[auth.userId].cards;
                                     cards.splice(i, 1);
                                     auth.submitCards(cards);
                                 }}
-                                style={{ "--size": "calc(1vh * 40 * 63 / 88)" }}>
-                                {!userReady && <div className="whiteButton">Remove Card</div>}
-                                {whites[card]}
-                            </div>
+                                buttonText={!userReady && "Remove Card"}
+                            />
                         );
                     })}
             </div>
@@ -63,20 +64,20 @@ export function Picking() {
                 <div className={className(pickingStyles.deckContainer, "deckContainer hideScroll")}>
                     {auth.room.userData[auth.userId]?.deck.map((x) => {
                         return (
-                            <div
-                                className="white"
+                            <WhiteCard
                                 key={x}
-                                style={{ "--size": "calc(1vh * 30 * 63 / 88)" }}
+                                ind={x}
+                                scale={30}
                                 onClick={() => {
                                     if (userReady) return;
                                     const cards = auth.room.userData[auth.userId].cards;
                                     if (!cards.includes(x)) {
                                         auth.submitCards(cards.length == auth.room.needed ? [x] : cards.concat(x));
                                     }
-                                }}>
-                                {!userReady && <div className="whiteButton">Add Card</div>}
-                                {whites[x]}
-                            </div>
+                                }}
+                                buttonText={!userReady && "Add Card"}
+                                noShadow
+                            />
                         );
                     })}
                 </div>
@@ -107,9 +108,7 @@ export function Picked() {
             <div className={pickingStyles.pickingTop}>
                 <Leaderboard users={auth.room.users} data={auth.room.userData} host={auth.room.users[auth.room.host]} />
                 <div className={className(pickingStyles.submitButtons, "submitButtons")}>{timer.length > 0 && <div className={pickingStyles.timerText}>{timer}</div>}</div>
-                <div className="black" style={{ "--size": "calc(1vh * 40 * 63 / 88)" }}>
-                    {blacks[auth.room.promptCard]}
-                </div>
+                <BlackCard scale={40} showAnimation ind={auth.room.promptCard} />
             </div>
             <div className={pickingStyles.pickingBottom}>
                 <div
@@ -125,9 +124,12 @@ export function Picked() {
                             auth.room.userData[x].cards?.length > 0 && (
                                 <div key={x} className={pickingStyles.cardsContainer}>
                                     {auth.room.userData[x].cards.slice(0, auth.room.needed).map((x) => (
-                                        <div className="white" key={x} style={{ "--size": "calc(1vh * 30 * 63 / 88)" }}>
-                                            {whites[x]}
-                                        </div>
+                                        <WhiteCard
+                                            key={x}
+                                            ind={x}
+                                            scale={30}
+                                            noShadow
+                                        />
                                     ))}
                                 </div>
                             )

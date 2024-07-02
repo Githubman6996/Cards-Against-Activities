@@ -5,6 +5,7 @@ import { blacks, whites, parseTime, className } from "../util.js";
 import Profile from "../components/Profile.jsx";
 import { ChosenBoard } from "../components/Leaderboard.jsx";
 import chosenStyles from "./Chosen.module.css";
+import { BlackCard, WhiteCard } from "../components/Card.jsx";
 
 export default function Chosen() {
     const auth = useAuth();
@@ -26,15 +27,9 @@ export default function Chosen() {
                 <ChosenBoard users={auth.room.users} data={auth.room.userData} host={auth.room.users[auth.room.host]} />
                 <div className={chosenStyles.chosenResults}>
                     <div className={chosenStyles.chosenCards}>
-                        <div className="black" style={{ "--size": "calc(1vh * 40 * 63 / 88)" }}>
-                            {blacks[curHist[0]]}
-                        </div>
+                        <BlackCard showAnimation scale={40} ind={curHist[0]} />
                         {curHist[2].map((card, i) => {
-                            return (
-                                <div className="white" key={card} style={{ "--size": "calc(1vh * 40 * 63 / 88)" }}>
-                                    {whites[card]}
-                                </div>
-                            );
+                            return <WhiteCard showAnimation index={i} key={card} ind={card} scale={40} />;
                         })}
                     </div>
                     <div className={chosenStyles.winner}>

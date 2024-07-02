@@ -10,22 +10,42 @@
 
 .winnerIcon {
     position: absolute;
-    rotate: -22.5deg;
-    bottom: 75%;
-    right: 35%;
+    rotate: -35deg;
+    top: -17.5%;
+    left: -2.5%;
     z-index: 1;
-    font-size: calc(var(--global) * 8 * var(--scale));
+    font-size: calc(var(--global) * 6 * var(--scale));
+    color: white;
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+    background-clip: text;
+    background-image: linear-gradient(90deg, orange, yellow);
+    transition: top 0.5s, left 0.5s, transform 0.5s;
+    transition-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+.winnerIconReady {
+    top: -23% !important;
+    left: -5% !important;
+    transform: scale(1.1);
 }
 
 .hostIcon {
     --size: calc(var(--global) * var(--scale) * 0.15);
     font-size: calc(var(--global) * var(--scale) * 3);
     position: absolute;
-    bottom: 75%;
-    left: 75%;
+    top: 4%;
+    right: 8%;
     z-index: 1;
-    text-shadow: var(--size) var(--size) 0 #000, calc(var(--size) * -1) var(--size) 0 #000, calc(var(--size) * -1) calc(var(--size) * -1) 0 #000, var(--size) calc(var(--size) * -1) 0 #000;
+    /* text-shadow: var(--size) var(--size) 0 #000, calc(var(--size) * -1) var(--size) 0 #000, calc(var(--size) * -1) calc(var(--size) * -1) 0 #000, var(--size) calc(var(--size) * -1) 0 #000; */
     animation: dropInBounce 0.5s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+    color: white;
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+    background-clip: text;
+    background-image: linear-gradient(90deg, goldenrod, yellow);
+    transform: scale(1.2);
+    filter: drop-shadow(0 0 0.15em rgb(156, 156, 156));
 }
 
 .avatar {

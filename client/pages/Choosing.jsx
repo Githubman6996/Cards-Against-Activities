@@ -5,6 +5,7 @@ import { blacks, whites, parseTime, className } from "../util.js";
 import Leaderboard from "../components/Leaderboard.jsx";
 
 import choosingStyles from "./Choosing.module.css";
+import { BlackCard, WhiteCard } from "../components/Card.jsx";
 
 export function Waiting() {
     const auth = useAuth();
@@ -24,9 +25,7 @@ export function Waiting() {
             <div className={choosingStyles.choosingTop}>
                 <Leaderboard users={auth.room.users} data={auth.room.userData} host={auth.room.users[auth.room.host]} />
                 <div className={className(choosingStyles.submitButtons, "submitButtons")}>{timer.length > 0 && <div className={choosingStyles.timerText}>{timer}</div>}</div>
-                <div className="black" style={{ "--size": "calc(1vh * 40 * 63 / 88)" }}>
-                    {blacks[auth.room.promptCard]}
-                </div>
+                <BlackCard scale={40} showAnimation ind={auth.room.promptCard} />
             </div>
             <div className={choosingStyles.choosingBottom}>
                 <div className={className(choosingStyles.deckContainer, "deckContainer hideScroll")} style={{ gap: "calc(var(--global) * " + Math.min(auth.room.needed, 2) + ")" }}>
@@ -46,6 +45,11 @@ export function Waiting() {
         </div>
     );
 }
+
+function randRange(min, max) {
+    return Math.floor(Math.random() * (max - min + 1) + min);
+}
+
 export function Choosing() {
     const auth = useAuth();
     const [timer, setTimer] = useState("1:00");
@@ -81,16 +85,10 @@ export function Choosing() {
                         </div>
                     )}
                 </div>
-                <div className="black" style={{ "--size": "calc(1vh * 40 * 63 / 88)" }}>
-                    {blacks[auth.room.promptCard]}
-                </div>
+                <BlackCard scale={40} showAnimation ind={auth.room.promptCard} />
                 {auth.room.userData[selecting]?.cards?.length > 0 &&
-                    auth.room.userData[selecting].cards.map((card) => {
-                        return (
-                            <div className="white" key={card} style={{ "--size": "calc(1vh * 40 * 63 / 88)" }}>
-                                {whites[card]}
-                            </div>
-                        );
+                    auth.room.userData[selecting].cards.map((card, i) => {
+                        return <WhiteCard key={card} ind={card} showAnimation index={i} scale={40} />;
                     })}
             </div>
             <div className={choosingStyles.choosingBottom}>
@@ -108,10 +106,18 @@ export function Choosing() {
                                             </div>
                                         )
                                     )}
-                                    {auth.room.userData[x].cards.slice(0, auth.room.needed).map((x) => (
-                                        <div className="white" key={x} style={{ "--size": "calc(1vh * 30 * 63 / 88)" }}>
-                                            {whites[x]}
-                                        </div>
+                                    {auth.room.userData[x].cards.slice(0, auth.room.needed).map((x, i) => (
+                                        <WhiteCard
+                                            key={x}
+                                            ind={x}
+                                            scale={30}
+                                            style={{
+                                                "--angle": randRange(-5, 5) + "deg",
+                                                animation: "scaleIn calc(0.5s + " + i * 0.1 + "s) cubic-bezier(0.19, 1, 0.22, 1)",
+                                                animationFillMode: "forwards",
+                                            }}
+                                            noShadow
+                                        />
                                     ))}
                                 </div>
                             )

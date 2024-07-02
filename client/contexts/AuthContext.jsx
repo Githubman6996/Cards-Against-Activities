@@ -152,8 +152,8 @@ export function AuthenticatedContextProvider({ children }) {
     const Provider = AuthenticatedContext.Provider;
     return (
         <>
-            <Settings hasLoaded={auth && room} />
-            {auth && room ? children && <Provider value={Object.assign({ room, page, toggleReady, submitCards, setRounds, chooseWinner, setPage }, auth)}>{children}</Provider> : <LoadingScreen />}
+            <Settings discordSdk={discordSdk} />
+            {auth && room ? children && <Provider value={Object.assign({ discordSdk, room, page, toggleReady, submitCards, setRounds, chooseWinner, setPage }, auth)}>{children}</Provider> : <LoadingScreen />}
         </>
     );
 }

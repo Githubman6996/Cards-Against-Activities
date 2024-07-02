@@ -2,28 +2,23 @@ import React, { useCallback, useEffect, useState } from "react";
 import { AlphaPicker, HuePicker } from "react-color";
 import settingsStyles from "./Settings.module.css";
 
-// theres a discordSDK method for this
-function isMobile() {
-    return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
-}
-
-export default function Settings() {
+export default function Settings({ discordSdk }) {
     const [settingsOpen, setSettingsOpen] = useState(false);
-    const [hue, setHue] = useState(typeof window.getComputedStyle(document.body).getPropertyValue("--hue") === "undefined" ? 235 : window.getComputedStyle(document.body).getPropertyValue("--hue"));
-    const [light, setLight] = useState(typeof window.getComputedStyle(document.body).getPropertyValue("--light") === "undefined" ? 0.5 : window.getComputedStyle(document.body).getPropertyValue("--light"));
-    const [saturation, setSaturation] = useState(typeof window.getComputedStyle(document.body).getPropertyValue("--saturation") === "undefined" ? 0.86 : window.getComputedStyle(document.body).getPropertyValue("--saturation"));
+    const [hue, setHue] = useState(window.getComputedStyle(document.body).getPropertyValue("--hue") === "" ? 235 : window.getComputedStyle(document.body).getPropertyValue("--hue"));
+    const [saturation, setSaturation] = useState(window.getComputedStyle(document.body).getPropertyValue("--saturation") === "" ? 0.86 : window.getComputedStyle(document.body).getPropertyValue("--saturation"));
+    const [light, setLight] = useState(window.getComputedStyle(document.body).getPropertyValue("--light") === "" ? 0.5 : window.getComputedStyle(document.body).getPropertyValue("--light"));
     useEffect(() => {
         document.body.style.setProperty("--hue", hue);
         window.localStorage.setItem("hue", hue);
     }, [hue]);
     useEffect(() => {
-        document.body.style.setProperty("--light", light);
-        window.localStorage.setItem("light", light);
-    }, [light]);
-    useEffect(() => {
         document.body.style.setProperty("--saturation", saturation);
         window.localStorage.setItem("saturation", saturation);
     }, [saturation]);
+    useEffect(() => {
+        document.body.style.setProperty("--light", light);
+        window.localStorage.setItem("light", light);
+    }, [light]);
     const reset = useCallback(() => {
         setHue(235);
         setSaturation(0.86);
@@ -31,7 +26,8 @@ export default function Settings() {
     }, []);
 
     useEffect(() => {
-        if (!("hue" in window.localStorage)) reset();
+        if (isNaN(hue) || isNaN(saturation) || isNaN(light)) reset();
+        console.log(discordSdk?.platform == "mobile");
     }, []);
 
     return (
@@ -49,6 +45,7 @@ export default function Settings() {
                     <div className={settingsStyles.exitSettingsButton} onClick={() => setSettingsOpen(false)}>
                         <i className="fa-regular fa-xmark"></i>
                     </div>
+                    {`${parseFloat(hue).toPrecision(3)} ${saturation} ${light}`}
                     <div className={settingsStyles.setting}>
                         <label className={settingsStyles.settingHeader} htmlFor="bgColor">
                             Background Color

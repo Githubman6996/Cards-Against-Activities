@@ -5,7 +5,7 @@
 }
 
 .pickingPage {
-    width: 100vw;
+    width: 100%;
     height: 100vh;
     color: #fff;
     display: grid;
@@ -90,9 +90,11 @@
     overflow-y: scroll;
     height: calc(50vh - var(--global) * 6);
     gap: calc(var(--global) * 1);
-    outline: calc(var(--global) * .2) solid white;
+    /* outline: calc(var(--global) * .2) solid white; */
     border-radius: calc(var(--global) * 1);
-    background: rgb(0 0 0 / 50%)
+    background: rgb(0 0 0 / 50%);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
 }
 
 .cardsContainer {
